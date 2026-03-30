@@ -3,11 +3,12 @@ import type { Product, PaginatedResponse, FetchProductsParams } from '../types/p
 // Static mock data
 const mockProducts: Product[] = Array.from({ length: 154 }, (_, i) => ({
   id: `prod-${i + 1}`,
-  name: `Premium Product ${i + 1}`,
+  name: `Fabrilife Mens Premium Designer Edition T Shirt - Variant ${i + 1}`,
+  brand: 'Fabrilife',
   description: `This is a detailed description for Premium Product ${i + 1}. It features exceptional quality and design, perfect for modern needs.`,
-  price: Math.floor(Math.random() * 500) + 50,
+  price: Math.floor(Math.random() * 5000) + 500,
   category: ['Electronics', 'Clothing', 'Home', 'Outdoors'][Math.floor(Math.random() * 4)],
-  imageUrl: `https://picsum.photos/seed/${i + 1}/400/300`,
+  imageUrl: `https://picsum.photos/seed/${i + 1}/400/500`, // Slightly taller image for product cards
   stock: Math.floor(Math.random() * 50),
 }));
 

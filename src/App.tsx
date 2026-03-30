@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Search, Loader2, AlertCircle, RotateCcw } from "lucide-react";
+import { Search, AlertCircle, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { api } from "./services/api";
 import type { Product, PaginatedResponse } from "./types/product";

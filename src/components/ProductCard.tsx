@@ -19,12 +19,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3 }}
-      className="group flex flex-col bg-white rounded-2xl overflow-hidden cursor-pointer"
+      className="group flex max-w-[209.6px] flex-col bg-white rounded-lg overflow-hidden cursor-pointer"
     >
       {/* Product Image Container */}
-      <div className="relative aspect-[4/5] bg-gray-100 overflow-hidden rounded-2xl">
+      <div className="relative max-w-[209.6px] max-h-[210px] aspect-[4/5] bg-gray-100 overflow-hidden rounded-lg">
         <img
           src={product.imageUrl}
           alt={product.name}
@@ -34,15 +32,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="flex flex-col pt-4 pb-2">
-        <span className="text-gray-500 text-sm font-medium mb-1">
+      <div className="flex flex-col pt-4 p-2">
+        <span className="text-[#5A6573] text-sm font-normal mb-1">
           {product.brand}
         </span>
-        <h3 className="text-[#1a2b3c] text-lg font-bold leading-tight mb-2 line-clamp-2">
+        <h3 className="text-[#1A2B3D] text-[16px] font-[525] leading-[22px] mb-2 line-clamp-2">
           {product.name}
         </h3>
         <div className="flex items-center">
-          <span className="text-[#0070f3] text-2xl font-bold">
+          <span className="text-[#1882FF] text-xl font-[475] leading-[22px]">
             {formattedPrice.replace("BDT", "৳")}
           </span>
         </div>

@@ -19,7 +19,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="group flex max-w-[209.6px] flex-col bg-white rounded-lg overflow-hidden cursor-pointer"
+      className="group flex max-w-[209.6px] mx-auto flex-col bg-white rounded-lg overflow-hidden cursor-pointer"
     >
       {/* Product Image Container */}
       <div className="relative max-w-[209.6px] max-h-[210px] aspect-[4/5] bg-gray-100 overflow-hidden rounded-lg">

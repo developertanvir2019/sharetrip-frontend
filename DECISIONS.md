@@ -10,19 +10,19 @@ I used standard React usestate and useEffect for state management as it's a rela
 
 For handling the flaky API:
 
-- **Loading State**: A dedicated `loading` boolean controls the display of skeleton cards, providing immediate visual feedback.
-- **Error Handling**: I wrapped the API call in a `try-catch` block. When an error occurs, it's captured in an `error` state, which triggers a dedicated error UI with a "Try Again" button for manual retries.
-- **Search Debouncing**: Implemented a 500ms debounce on the search input to prevent excessive API calls and handle rapid user input gracefully.
-- **Resetting State**: Pagination and category filters reset to the first page when search terms or categories change to maintain data consistency.
+1. **Loading State**: A dedicated loading state controls the display of skeleton cards, providing immediate visual feedback.
+2. **Error Handling**: I wrapped the API call in a try-catch block. When an error occurs, it's captured in an error state, which triggers a dedicated error UI with a "Try Again" button for manual retries.
+3. **Search Debouncing**: Implemented a 500ms debounce on the search input to prevent excessive API calls and handle rapid user input gracefully.
+4. **Resetting State**: Pagination and category filters reset to the first page when search terms or categories change to maintain data consistency.
+5. **RTK Consideration**: While Redux Toolkit (RTK) with RTK Query could provide robust caching, automatic retries, and optimistic updates for the flaky API, I intentionally kept the solution lightweight with local state. For a production-grade app, RTK Query would be the next logical step to handle retries, background refetching, and cache invalidation.
 
 ## 2. Trade-offs and Omissions
 
 _What did you intentionally leave out given the constraints of a take-home assignment? If you had more time, what would you prioritize next?_
 
 - **Global State**: I avoided using Redux or React Context because the application scope didn't require it.
-- **Complex Animations**: I used basic `framer-motion` transitions. With more time, I'd implement more sophisticated layout transitions (e.g., using `layout` prop for grid items).
+- **Complex Animations**: I used basic framer-motion transitions.
 - **Unit Testing**: Given the time constraints, I prioritized implementation and manual verification. I would add Vitest/React Testing Library tests for the components and API service.
-- **Caching**: Implementing a caching layer (like TanStack Query) would significantly improve UX for the flaky API by providing stale-while-revalidate functionality.
 
 ## 3. AI Usage
 
@@ -39,7 +39,6 @@ I used Trae (powered by Gemini-3-Flash-Preview) as a pair programmer.
 
 _Did you notice any edge cases or bugs that you didn't have time to fix? Please list them here._
 
-- **Rapid State Changes**: If a user switches categories very quickly while an API call is in progress, there might be a race condition. Implementing an `AbortController` in the API service would solve this.
-- **Pagination Overflow**: If there are hundreds of pages, the current pagination component might become cluttered. I added basic ellipsis logic, but it could be more robust.
-- **Image Loading**: While I added `loading="lazy"`, a proper placeholder or error state for individual product images would improve the experience if specific image URLs fail.
+- **Rapid State Changes**: If a user switches categories very quickly while an API call is in progress, there might be a race condition. Implementing an AbortController in the API service would solve this.
+
 - **Search Consistency**: If a search is in progress and the user changes category, the results should reflect both. Currently, it does, but clear indicators of active filters would be better.
